@@ -7,7 +7,7 @@ exports.generateTokenFun = async (userId, res) => {
         res.cookie("Bearer", token, {
             expires: new Date(Date.now() + 60 * 60 * 1000),
             httpOnly: true,
-            // secure: process.env.NODE_ENV === 'production',
+            secure: process.env.NODE_ENV === 'production',
             sameSite: 'Strict',
         });
 

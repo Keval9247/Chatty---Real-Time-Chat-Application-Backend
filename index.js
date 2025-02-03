@@ -13,14 +13,7 @@ app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }))
 app.use("/uploads", express.static("uploads"));
 
-app.use(
-  cors({
-    origin: ["http://localhost:5173", "http://localhost:5174"],
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-    credentials: true,
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"]
-  })
-);
+app.use(cors({ credentials: true, origin: true }));
 
 app.use(express.static("build"));
 

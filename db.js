@@ -1,12 +1,9 @@
 const mongoose = require('mongoose');
 
-
-const MONGO_URI = 'mongodb://localhost:27017/MyChat';
-
 const connectDB = async () => {
     try {
         console.log('MongoDB Connecting...');
-        await mongoose.connect(MONGO_URI);
+        await mongoose.connect(process.env.MONGO_URL);
         console.log('MongoDB Connected.');
 
     } catch (error) {

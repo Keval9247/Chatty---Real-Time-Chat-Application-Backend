@@ -4,7 +4,7 @@ const User = require('../models/userSchema');
 const protectMiddlware = async (req, res, next) => {
     try {
         const token = req.cookies.Bearer
-        console.log("🚀🚀 Your selected text is => token: ", token);
+        console.log("🚀🚀 Your selected text is => token: ", req.cookies);
         if (!token) {
             return res.status(401).json({ message: 'Not authorized, token is required' });
         }

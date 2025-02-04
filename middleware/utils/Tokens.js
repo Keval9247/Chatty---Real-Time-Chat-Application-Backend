@@ -5,10 +5,10 @@ exports.generateTokenFun = async (userId, res) => {
         const token = jwt.sign({ id: userId }, process.env.SECRETKEY, { expiresIn: '1h' });
 
         res.cookie("Bearer", token, {
-            expires: new Date(Date.now() + 60 * 60 * 1000),
             httpOnly: true,
+            expires: new Date(Date.now() + 60 * 60 * 1000),
             // secure: process.env.NODE_ENV === 'production',
-            sameSite: 'Strict',
+            sameSite: 'strict',
         });
 
         return token;

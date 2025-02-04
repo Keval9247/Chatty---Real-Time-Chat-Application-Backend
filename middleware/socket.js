@@ -9,11 +9,11 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: ['http://localhost:5173', 'http://localhost:5174'],
-        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        origin: ["http://localhost:5173"],
+        credentials: true,
+        methods: ["GET", "POST", "PUT", "DELETE"],
     },
-})
-
+});
 
 // used to store online users
 const usersocketMap = {} // {userId: socketId}
